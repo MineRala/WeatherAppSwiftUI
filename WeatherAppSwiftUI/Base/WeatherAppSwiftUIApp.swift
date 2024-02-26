@@ -13,5 +13,6 @@ struct WeatherAppSwiftUIApp: App {
         WindowGroup {
             ContentView()
         }
+        
     }
 }
