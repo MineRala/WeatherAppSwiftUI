@@ -20,10 +20,9 @@ struct DailyListView: View {
                     .padding(.leading, 4)
             }
             .padding([.top, .leading])
-            Rectangle()
-                .fill(Color.black.opacity(0.3))
-                .padding(.leading, 10)
-                .frame(width: UIScreen.main.bounds.width - 50, height: 0.3)
+            Divider()
+                .background(.black).opacity(0.3)
+                .padding([.bottom, .leading], 10)
             List {
                 ForEach(1..<11, id: \.self) { _ in
                     DailyListRowView(isPercentage: $isPercentage)

@@ -16,10 +16,9 @@ struct HourlyListView: View {
                 .padding(.top)
                 .padding(.leading, 4)
                 .foregroundColor(.white)
-            Rectangle()
-                .fill(Color.black.opacity(0.3))
-                .padding(.leading, 10)
-                .frame(width: UIScreen.main.bounds.width - 50, height: 0.3)
+            Divider()
+                .background(.black).opacity(0.3)
+                .padding([.bottom, .leading], 10)
             ScrollView(.horizontal) {
                 LazyHGrid(rows: [GridItem(.flexible())], spacing: 8) {
                     ForEach(items, id: \.self){ item in
