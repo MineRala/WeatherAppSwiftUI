@@ -19,6 +19,7 @@
 		E87492372B8C998100376D4C /* DataListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87492362B8C998100376D4C /* DataListRowView.swift */; };
 		E87492392B8CBEBC00376D4C /* SubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87492382B8CBEBC00376D4C /* SubView.swift */; };
 		E874923D2B8CE64300376D4C /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874923C2B8CE64300376D4C /* AddView.swift */; };
+		EBEF84B02B8DEF0A0049543A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEF84AF2B8DEF0A0049543A /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		E87492362B8C998100376D4C /* DataListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataListRowView.swift; sourceTree = "<group>"; };
 		E87492382B8CBEBC00376D4C /* SubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubView.swift; sourceTree = "<group>"; };
 		E874923C2B8CE64300376D4C /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		EBEF84AF2B8DEF0A0049543A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				E874921A2B88B23D00376D4C /* ContentView.swift */,
+				EBEF84AF2B8DEF0A0049543A /* HomeView.swift */,
 				E87492382B8CBEBC00376D4C /* SubView.swift */,
 			);
 			path = MainView;
@@ -214,6 +217,7 @@
 				E874923D2B8CE64300376D4C /* AddView.swift in Sources */,
 				E874922D2B88D12B00376D4C /* DailyListRowView.swift in Sources */,
 				E874922B2B88CDCB00376D4C /* DailyListView.swift in Sources */,
+				EBEF84B02B8DEF0A0049543A /* HomeView.swift in Sources */,
 				E874921B2B88B23D00376D4C /* ContentView.swift in Sources */,
 				E87492192B88B23D00376D4C /* WeatherAppSwiftUIApp.swift in Sources */,
 				E87492392B8CBEBC00376D4C /* SubView.swift in Sources */,
