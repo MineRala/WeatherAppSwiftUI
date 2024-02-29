@@ -72,7 +72,7 @@ struct HomeView: View {
     
     func getTitleOffset() -> CGFloat {
         if offset < 0 {
-            let progress = -offset / 100
+            let progress = -offset / 180
             
             let newOffset = (progress <= 1 ? progress : 1) * 30
             
