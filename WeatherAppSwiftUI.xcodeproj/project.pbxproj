@@ -19,7 +19,12 @@
 		E87492372B8C998100376D4C /* DataListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87492362B8C998100376D4C /* DataListRowView.swift */; };
 		E87492392B8CBEBC00376D4C /* SubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87492382B8CBEBC00376D4C /* SubView.swift */; };
 		E874923D2B8CE64300376D4C /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874923C2B8CE64300376D4C /* AddView.swift */; };
+		E874923F2B8F0D3A00376D4C /* PlaceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874923E2B8F0D3900376D4C /* PlaceRowView.swift */; };
+		E87492422B8F0FEB00376D4C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87492412B8F0FEB00376D4C /* Model.swift */; };
+		E87492442B8F481C00376D4C /* NoResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87492432B8F481C00376D4C /* NoResultsView.swift */; };
+		E87492462B8F648700376D4C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87492452B8F648700376D4C /* Theme.swift */; };
 		EBEF84B02B8DEF0A0049543A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEF84AF2B8DEF0A0049543A /* HomeView.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +41,12 @@
 		E87492362B8C998100376D4C /* DataListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataListRowView.swift; sourceTree = "<group>"; };
 		E87492382B8CBEBC00376D4C /* SubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubView.swift; sourceTree = "<group>"; };
 		E874923C2B8CE64300376D4C /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		E874923E2B8F0D3900376D4C /* PlaceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRowView.swift; sourceTree = "<group>"; };
+		E87492412B8F0FEB00376D4C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		E87492432B8F481C00376D4C /* NoResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultsView.swift; sourceTree = "<group>"; };
+		E87492452B8F648700376D4C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		EBEF84AF2B8DEF0A0049543A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +82,7 @@
 				E87492292B88CCA400376D4C /* Base */,
 				E87492282B88CC9300376D4C /* Views */,
 				E874921E2B88B24000376D4C /* Preview Content */,
+				E87492452B8F648700376D4C /* Theme.swift */,
 			);
 			path = WeatherAppSwiftUI;
 			sourceTree = "<group>";
@@ -92,6 +103,9 @@
 				E87492332B8C991400376D4C /* DailyView */,
 				E87492342B8C992B00376D4C /* DataView */,
 				E874923C2B8CE64300376D4C /* AddView.swift */,
+				E874923E2B8F0D3900376D4C /* PlaceRowView.swift */,
+				E87492412B8F0FEB00376D4C /* Model.swift */,
+				E87492432B8F481C00376D4C /* NoResultsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,8 +227,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E874922F2B8906D400376D4C /* DataListView.swift in Sources */,
+				E87492442B8F481C00376D4C /* NoResultsView.swift in Sources */,
 				E87492372B8C998100376D4C /* DataListRowView.swift in Sources */,
 				E874923D2B8CE64300376D4C /* AddView.swift in Sources */,
+				E87492422B8F0FEB00376D4C /* Model.swift in Sources */,
 				E874922D2B88D12B00376D4C /* DailyListRowView.swift in Sources */,
 				E874922B2B88CDCB00376D4C /* DailyListView.swift in Sources */,
 				EBEF84B02B8DEF0A0049543A /* HomeView.swift in Sources */,
@@ -223,6 +239,8 @@
 				E87492392B8CBEBC00376D4C /* SubView.swift in Sources */,
 				E87492312B8C7CA000376D4C /* HourlyListColumnView.swift in Sources */,
 				E87492272B88CC0E00376D4C /* HourlyListView.swift in Sources */,
+				E874923F2B8F0D3A00376D4C /* PlaceRowView.swift in Sources */,
+				E87492462B8F648700376D4C /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

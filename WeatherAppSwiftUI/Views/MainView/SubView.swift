@@ -32,7 +32,6 @@ struct SubView: View {
                     .fontWeight(.semibold)
                     .opacity(opacity)
             }
-           
         }
     }
 }
