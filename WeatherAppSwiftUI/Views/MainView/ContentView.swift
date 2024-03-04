@@ -6,10 +6,23 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
+    @State private var selection = 0
+    @State private var isRowTapped = false
+    
+    init() {
+        UITabBar.appearance().barTintColor = .black
+        let standardAppearance = UITabBarAppearance()
+        standardAppearance.configureWithDefaultBackground()
+        standardAppearance.backgroundColor = UIColor.black
+        UITabBar.appearance().standardAppearance = standardAppearance
+        UITabBar.appearance().scrollEdgeAppearance = standardAppearance
+    }
+    
     var body: some View {
-        TabView {
+        TabView(selection: $selection) {
             ScrollView {
                 VStack(spacing: 16) {
                     SubView()
@@ -25,24 +38,28 @@ struct ContentView: View {
             .tabItem {
                 Image(systemName: "1.circle")
             }
+            .tag(0)
             .scrollIndicators(.hidden)
             .background(
                 Image("hv")
                     .resizable()
                     .scaledToFill()
-                    .edgesIgnoringSafeArea(.all)
+                    .edgesIgnoringSafeArea([.top, .leading, .trailing])
             )
-            
-            AddView()
-                .background(.blue.opacity(0.5))
+            AddView(isRowTapped: $isRowTapped )
                 .tabItem {
                     Image(systemName: "2.circle")
                 }
+                .tag(1)
         }
-        .onAppear() {
-                UITabBar.appearance().backgroundColor = .lightGray
+        .onReceive(Just(isRowTapped)) { tapped in
+            if tapped {
+                selection = 0
+                isRowTapped = false
             }
+        }
         .accentColor(.blue)
+        .background(Color.red)
     }
 }
 
