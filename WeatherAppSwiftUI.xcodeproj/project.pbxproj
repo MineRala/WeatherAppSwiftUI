@@ -23,6 +23,8 @@
 		E87492422B8F0FEB00376D4C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87492412B8F0FEB00376D4C /* Model.swift */; };
 		E87492442B8F481C00376D4C /* NoResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87492432B8F481C00376D4C /* NoResultsView.swift */; };
 		E87492462B8F648700376D4C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87492452B8F648700376D4C /* Theme.swift */; };
+		EBEF84B02B8DEF0A0049543A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEF84AF2B8DEF0A0049543A /* HomeView.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		E87492412B8F0FEB00376D4C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E87492432B8F481C00376D4C /* NoResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultsView.swift; sourceTree = "<group>"; };
 		E87492452B8F648700376D4C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		EBEF84AF2B8DEF0A0049543A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				E874921A2B88B23D00376D4C /* ContentView.swift */,
+				EBEF84AF2B8DEF0A0049543A /* HomeView.swift */,
 				E87492382B8CBEBC00376D4C /* SubView.swift */,
 			);
 			path = MainView;
@@ -228,6 +233,7 @@
 				E87492422B8F0FEB00376D4C /* Model.swift in Sources */,
 				E874922D2B88D12B00376D4C /* DailyListRowView.swift in Sources */,
 				E874922B2B88CDCB00376D4C /* DailyListView.swift in Sources */,
+				EBEF84B02B8DEF0A0049543A /* HomeView.swift in Sources */,
 				E874921B2B88B23D00376D4C /* ContentView.swift in Sources */,
 				E87492192B88B23D00376D4C /* WeatherAppSwiftUIApp.swift in Sources */,
 				E87492392B8CBEBC00376D4C /* SubView.swift in Sources */,
