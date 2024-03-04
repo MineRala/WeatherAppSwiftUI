@@ -8,38 +8,29 @@
 import SwiftUI
 
 struct SubView: View {
+    var opacity: CGFloat
     var body: some View {
         Text("İzmir")
             .foregroundColor(.white)
             .font(.largeTitle)
             .padding(.top, 34)
         ZStack {
-            HStack {
-                Text("17°")
-                    .foregroundColor(.white)
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                Rectangle()
-                    .fill(Color.white)
-                    .frame(width: 3, height: 25)
-                Text("Çok Bulutlu")
-                    .foregroundColor(.white)
-                    .font(.title2)
-                    .fontWeight(.semibold)
-            }.opacity(0)
             VStack {
                 Text("17°")
                     .foregroundColor(.white)
                     .font(.system(size: 80))
                     .fontWeight(.thin)
+                    .opacity(opacity)
                 Text("Çok Bulutlu")
                     .foregroundColor(.white)
                     .font(.title2)
                     .fontWeight(.semibold)
+                    .opacity(opacity)
                 Text("Y: 17° D:7°")
                     .foregroundColor(.white)
                     .font(.title2)
                     .fontWeight(.semibold)
+                    .opacity(opacity)
             }
            
         }
@@ -47,6 +38,5 @@ struct SubView: View {
 }
 
 #Preview {
-    SubView()
-        .background(.blue)
+    ContentView()
 }
