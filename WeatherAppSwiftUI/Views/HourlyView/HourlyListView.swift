@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HourlyListView: View {
-    let items = Array(1...25)
+    let items = Array(1...9)
     @State var isPercentage: Bool = true
     var body: some View {
         VStack(alignment: .leading) {
