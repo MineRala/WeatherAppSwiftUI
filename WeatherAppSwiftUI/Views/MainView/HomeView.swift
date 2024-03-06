@@ -15,6 +15,7 @@ struct HomeView: View {
     @State var currentWeather: CurrentDataModel?
     @State var forecastWeather: ForecastDataModel?
     @State var offset: CGFloat = 0
+    @State private var locationDeniedAlertShow = false
     @StateObject var locationDataManager = LocationDataManager()
 
     init() {
@@ -26,79 +27,79 @@ struct HomeView: View {
         UITabBar.appearance().scrollEdgeAppearance = standardAppearance
     }
     var body: some View {
-        if currentWeather == nil || forecastWeather == nil {
-            ProgressView("Loading")
-                .progressViewStyle(CircularProgressViewStyle())
-                .padding()
-                .onChange(of: locationDataManager.authorizationStatus, { oldValue, newValue in
-                    switch locationDataManager.locationManager.authorizationStatus {
-                    case .authorizedWhenInUse, .authorizedAlways:
-                        Task {
-                            await fetchData()
-                        }
-                    case .restricted, .denied:
-                        Text("Current location data was restricted or denied.")
-                    case .notDetermined:
-                        Text("Finding your location...")
-                        ProgressView()
-                    default:
-                        ProgressView()
-                    }
-                })
-        } else {
-            TabView(selection: $selection) {
-                ScrollView {
-                    VStack(spacing: 16) {
-                        SubView(opacity: getTitleOpacity(), currentWeather: $currentWeather)
-                            .offset(y: -offset)
-                            .offset(y: offset > 0 ? (offset / UIScreen.main.bounds.width) * 100 : 0)
-                            .offset(y: getTitleOffset())
-                        HourlyListView()
-                            .cornerRadius(10)
-                        DailyListView()
-                            .frame(height: 10 * 50)
-                            .cornerRadius(10)
-                        DataListView()
-                    }
-                    .frame(width: UIScreen.main.bounds.width - 40)
-                    .overlay(
-                        GeometryReader { proxy -> Color in
-                            let minY = proxy.frame(in: .named("scroll")).minY
-                            
-                            Task { @MainActor in
-                                self.offset = minY
-                            }
-                            return Color.clear
-                        }
-                    )
+        TabView(selection: $selection) {
+            ScrollView {
+                VStack(spacing: 16) {
+                    SubView(opacity: getTitleOpacity(), currentWeather: $currentWeather)
+                        .offset(y: -offset)
+                        .offset(y: offset > 0 ? (offset / UIScreen.main.bounds.width) * 100 : 0)
+                        .offset(y: getTitleOffset())
+                    HourlyListView(forecastWeather: $forecastWeather, currentWeather: $currentWeather)
+                        .cornerRadius(10)
+                    DailyListView()
+                        .frame(height: 10 * 50)
+                        .cornerRadius(10)
+                    DataListView()
                 }
-                .coordinateSpace(name: "scroll")
-                .tabItem {
-                    Image(systemName: "1.circle")
-                }
-                .tag(0)
-                .scrollIndicators(.hidden)
-                .background(
-                    Image("hv")
-                        .resizable()
-                        .scaledToFill()
-                        .edgesIgnoringSafeArea([.top, .leading, .trailing])
+                .frame(width: UIScreen.main.bounds.width - 40)
+                .overlay(
+                    GeometryReader { proxy -> Color in
+                        let minY = proxy.frame(in: .named("scroll")).minY
+                        
+                        Task { @MainActor in
+                            self.offset = minY
+                        }
+                        return Color.clear
+                    }
                 )
-                AddView(isRowTapped: $isRowTapped)
-                    .background(.blue.opacity(0.5))
-                    .tabItem {
-                        Image(systemName: "2.circle")
-                    }
-                    .tag(1)
             }
-            .onReceive(Just(isRowTapped)) { tapped in
-                if tapped {
-                    selection = 0
-                    isRowTapped = false
+            .coordinateSpace(name: "scroll")
+            .tabItem {
+                Image(systemName: "1.circle")
+            }
+            .tag(0)
+            .scrollIndicators(.hidden)
+            .background(
+                Image("hv")
+                    .resizable()
+                    .scaledToFill()
+                    .edgesIgnoringSafeArea([.top, .leading, .trailing])
+                    .blur(radius: 20)
+            )
+            AddView(isRowTapped: $isRowTapped)
+                .background(.blue.opacity(0.5))
+                .tabItem {
+                    Image(systemName: "2.circle")
                 }
+                .tag(1)
+        }
+        .onReceive(Just(isRowTapped)) { tapped in
+            if tapped {
+                selection = 0
+                isRowTapped = false
             }
-            .accentColor(.blue)
-            .background(Color.red)
+        }
+        .accentColor(.blue)
+        .background(Color.red)
+        .onChange(of: locationDataManager.authorizationStatus, { _, _ in
+            switch locationDataManager.authorizationStatus {
+            case .restricted, .denied:
+                locationDeniedAlertShow = true
+            case .authorizedAlways, .authorizedWhenInUse, .authorized:
+                Task {
+                    await fetchData()
+                }
+            default:
+                break
+            }
+        })
+        .alert("Location Permission is Denied", isPresented: $locationDeniedAlertShow) {
+            Button("Settings") {
+                if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
+                   UIApplication.shared.open(settingsUrl)
+                 }
+            }
+            Button("Dismiss", role: .cancel) { }
         }
     }
     
@@ -109,6 +110,8 @@ struct HomeView: View {
                 print("currentWeather finished")
                 self.forecastWeather  = try await APIService.shared.fetchData(endpoint: .forecastWeatherData(latitude: Float(latitude), longitude: Float(longitude)))
                 print("forecastWeather finished")
+            } else {
+                print("No location")
             }
         } catch {
             print("Error: \(error)")
@@ -141,4 +144,4 @@ struct HomeView: View {
 #Preview {
     ContentView()
 }
-                       
+

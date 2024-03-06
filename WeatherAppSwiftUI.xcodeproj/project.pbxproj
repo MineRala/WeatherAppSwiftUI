@@ -432,7 +432,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherAppSwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = LFZX9FGKB4;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Uygulamamızın size daha iyi bir kullanıcı deneyimi sunması için, her zaman konum bilgisine erişim izni gerekmektedir. Bu bilgi, size yakındaki etkinlikleri ve hizmetleri önermemize ve uygulamamızın özelliklerini optimize etmemize olanak tanır";
@@ -462,7 +462,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherAppSwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = LFZX9FGKB4;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Uygulamamızın size daha iyi bir kullanıcı deneyimi sunması için, her zaman konum bilgisine erişim izni gerekmektedir. Bu bilgi, size yakındaki etkinlikleri ve hizmetleri önermemize ve uygulamamızın özelliklerini optimize etmemize olanak tanır";

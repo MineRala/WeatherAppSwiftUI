@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HourlyListColumnView: View {
     @Binding var isPercentage: Bool
+    var forecast: ForecastList?
     var body: some View {
         VStack(alignment: .center) {
             Text("Now")
@@ -27,5 +28,5 @@ struct HourlyListColumnView: View {
 }
 
 #Preview {
-    HourlyListColumnView(isPercentage: .constant(false))
+    ContentView()
 }
