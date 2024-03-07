@@ -10,13 +10,12 @@ import SwiftUI
 struct HourlyListView: View {
     @Binding var forecastWeather: ForecastDataModel?
     @Binding var currentWeather: CurrentDataModel?
-    @State var isPercentage: Bool = true
     var body: some View {
         VStack(alignment: .leading) {
-            Text(currentWeather?.weather[0]?.description?.uppercased() ?? "")
+            Text("Daily Forecast".uppercased())
                 .font(.headline)
                 .padding(.top)
-                .padding(.leading, 4)
+                .padding(.leading, 10)
                 .foregroundColor(.white)
             Divider()
                 .background(.black).opacity(0.3)
@@ -26,8 +25,8 @@ struct HourlyListView: View {
                     if let forecastWeather {
                         let subArray = Array(forecastWeather.list.prefix(8))
                         ForEach(subArray, id: \.self){ item in
-                            HourlyListColumnView(isPercentage: $isPercentage, forecast: item)
-                                .frame(width: 50, height: isPercentage ? 85 : 80)
+                            HourlyListColumnView(forecast: item)
+                                .frame(width: 50, height: 80)
                                 .foregroundColor(.white)
                         }
                     }

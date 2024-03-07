@@ -106,10 +106,33 @@ struct HomeView: View {
     func fetchData() async {
         do {
             if let latitude = locationDataManager.locationManager.location?.coordinate.latitude, let longitude = locationDataManager.locationManager.location?.coordinate.longitude {
-                self.currentWeather = try await APIService.shared.fetchData(endpoint: .currentWeatherData(latitude: Float(latitude), longitude: Float(longitude)))
-                print("currentWeather finished")
-                self.forecastWeather  = try await APIService.shared.fetchData(endpoint: .forecastWeatherData(latitude: Float(latitude), longitude: Float(longitude)))
-                print("forecastWeather finished")
+                let result = try await withThrowingTaskGroup(of: WeatherDataModel.self, returning: (CurrentDataModel?, ForecastDataModel?).self) { group in
+                    group.addTask {
+                        let weather: CurrentDataModel? = try await APIService.shared.fetchData(endpoint: .currentWeatherData(latitude: Float(latitude), longitude: Float(longitude)))
+                        return .weather(weather)
+                    }
+                    group.addTask {
+                        let forecast: ForecastDataModel? = try await APIService.shared.fetchData(endpoint: .forecastWeatherData(latitude: Float(latitude), longitude: Float(longitude)))
+                        return .forecast(forecast)
+                    }
+                    
+                    var weather: CurrentDataModel?
+                    var forecast: ForecastDataModel?
+                    
+                    for try await result in group {
+                        switch result {
+                        case .weather(let value):
+                            weather = value
+                        case .forecast(let value):
+                            forecast = value
+                        }
+                    }
+                    
+                    return (weather, forecast)
+                }
+                
+                self.currentWeather = result.0
+                self.forecastWeather = result.1
             } else {
                 print("No location")
             }
@@ -143,5 +166,10 @@ struct HomeView: View {
 
 #Preview {
     ContentView()
+}
+
+enum WeatherDataModel {
+    case weather(CurrentDataModel?)
+    case forecast(ForecastDataModel?)
 }
 

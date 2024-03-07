@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DailyListView: View {
-    @State var isPercentage = true
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -18,6 +17,7 @@ struct DailyListView: View {
                 Text("10-Day Forecast".uppercased())
                     .foregroundColor(.white)
                     .padding(.leading, 4)
+                    .font(.headline)
             }
             .padding([.top, .leading])
             Divider()
@@ -25,7 +25,7 @@ struct DailyListView: View {
                 .padding([.bottom, .leading], 10)
             List {
                 ForEach(1..<11, id: \.self) { _ in
-                    DailyListRowView(isPercentage: $isPercentage)
+                    DailyListRowView()
                         .frame(height: 10)
                         .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 }

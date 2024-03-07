@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DailyListRowView: View {
-    @Binding var isPercentage: Bool
     var body: some View {
         HStack() {
             Text("Bugün")
@@ -22,11 +21,6 @@ struct DailyListRowView: View {
                     .frame(width: 16, height: 16)
                     .foregroundColor(.white)
                     .padding(.leading, 4)
-                if isPercentage {
-                    Text("60%")
-                        .foregroundColor(.black)
-                        .font(.footnote)
-                }
             }
             .padding(.top, 4)
             Spacer()
@@ -47,6 +41,6 @@ struct DailyListRowView: View {
 }
 
 #Preview {
-    DailyListRowView(isPercentage: .constant(false))
+    DailyListRowView()
         .background(.blue)
 }
