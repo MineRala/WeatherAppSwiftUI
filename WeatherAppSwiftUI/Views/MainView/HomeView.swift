@@ -7,11 +7,17 @@
 
 import SwiftUI
 import Combine
+import CoreLocation
 
 struct HomeView: View {
     @State private var selection = 0
     @State private var isRowTapped = false
-    
+    @State var currentWeather: CurrentDataModel?
+    @State var forecastWeather: ForecastDataModel?
+    @State var offset: CGFloat = 0
+    @State private var locationDeniedAlertShow = false
+    @StateObject var locationDataManager = LocationDataManager()
+
     init() {
         UITabBar.appearance().barTintColor = .black
         let standardAppearance = UITabBarAppearance()
@@ -21,21 +27,20 @@ struct HomeView: View {
         UITabBar.appearance().scrollEdgeAppearance = standardAppearance
     }
 
-    @State var offset: CGFloat = 0
     var body: some View {
         TabView(selection: $selection) {
             ScrollView {
                 VStack(spacing: 16) {
-                    SubView(opacity: getTitleOpacity())
+                    SubView(opacity: getTitleOpacity(), currentWeather: $currentWeather)
                         .offset(y: -offset)
                         .offset(y: offset > 0 ? (offset / UIScreen.main.bounds.width) * 100 : 0)
                         .offset(y: getTitleOffset())
-                    HourlyListView()
+                    HourlyListView(forecastWeather: $forecastWeather, currentWeather: $currentWeather)
                         .cornerRadius(10)
-                    DailyListView()
-                        .frame(height: 10 * 50)
+                    DailyListView(forecastWeather: $forecastWeather)
+//                        .frame(height: 6 * 50)
                         .cornerRadius(10)
-                    DataListView()
+                    DataListView(currentWeather: $currentWeather)
                 }
                 .frame(width: UIScreen.main.bounds.width - 40)
                 .overlay(
@@ -60,6 +65,7 @@ struct HomeView: View {
                     .resizable()
                     .scaledToFill()
                     .edgesIgnoringSafeArea([.top, .leading, .trailing])
+                    .blur(radius: 20)
             )
             AddView(isRowTapped: $isRowTapped)
                 .background(.blue.opacity(0.5))
@@ -76,9 +82,67 @@ struct HomeView: View {
         }
         .accentColor(.blue)
         .background(Color.red)
+        .onChange(of: locationDataManager.authorizationStatus, { _, _ in
+            switch locationDataManager.authorizationStatus {
+            case .restricted, .denied:
+                locationDeniedAlertShow = true
+            case .authorizedAlways, .authorizedWhenInUse, .authorized:
+                Task {
+                    await fetchData()
+                }
+            default:
+                break
+            }
+        })
+        .alert("Location Permission is Denied", isPresented: $locationDeniedAlertShow) {
+            Button("Settings") {
+                if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
+                   UIApplication.shared.open(settingsUrl)
+                 }
+            }
+            Button("Dismiss", role: .cancel) { }
+        }
     }
     
-    func getTitleOpacity() -> CGFloat {
+    private func fetchData() async {
+        do {
+            if let latitude = locationDataManager.locationManager.location?.coordinate.latitude, let longitude = locationDataManager.locationManager.location?.coordinate.longitude {
+                let result = try await withThrowingTaskGroup(of: WeatherDataModel.self, returning: (CurrentDataModel?, ForecastDataModel?).self) { group in
+                    group.addTask {
+                        let weather: CurrentDataModel? = try await APIService.shared.fetchData(endpoint: .currentWeatherData(latitude: Float(latitude), longitude: Float(longitude)))
+                        return .weather(weather)
+                    }
+                    group.addTask {
+                        let forecast: ForecastDataModel? = try await APIService.shared.fetchData(endpoint: .forecastWeatherData(latitude: Float(latitude), longitude: Float(longitude)))
+                        return .forecast(forecast)
+                    }
+                    
+                    var weather: CurrentDataModel?
+                    var forecast: ForecastDataModel?
+                    
+                    for try await result in group {
+                        switch result {
+                        case .weather(let value):
+                            weather = value
+                        case .forecast(let value):
+                            forecast = value
+                        }
+                    }
+                    
+                    return (weather, forecast)
+                }
+                
+                self.currentWeather = result.0
+                self.forecastWeather = result.1
+            } else {
+                print("No location")
+            }
+        } catch {
+            print("Error: \(error)")
+        }
+    }
+    
+    private func getTitleOpacity() -> CGFloat {
         let titleOffset = -getTitleOffset()
         
         let progress = titleOffset / 30
@@ -88,7 +152,7 @@ struct HomeView: View {
         return opacity
     }
     
-    func getTitleOffset() -> CGFloat {
+    private func getTitleOffset() -> CGFloat {
         if offset < 0 {
             let progress = -offset / 180
             
@@ -104,3 +168,9 @@ struct HomeView: View {
 #Preview {
     ContentView()
 }
+
+enum WeatherDataModel {
+    case weather(CurrentDataModel?)
+    case forecast(ForecastDataModel?)
+}
+

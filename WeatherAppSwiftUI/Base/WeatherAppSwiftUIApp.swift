@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 @main
 struct WeatherAppSwiftUIApp: App {
@@ -13,6 +14,5 @@ struct WeatherAppSwiftUIApp: App {
         WindowGroup {
             ContentView()
         }
-        
     }
 }
