@@ -26,6 +26,7 @@ struct HomeView: View {
         UITabBar.appearance().standardAppearance = standardAppearance
         UITabBar.appearance().scrollEdgeAppearance = standardAppearance
     }
+
     var body: some View {
         TabView(selection: $selection) {
             ScrollView {
@@ -36,10 +37,10 @@ struct HomeView: View {
                         .offset(y: getTitleOffset())
                     HourlyListView(forecastWeather: $forecastWeather, currentWeather: $currentWeather)
                         .cornerRadius(10)
-                    DailyListView()
-                        .frame(height: 10 * 50)
+                    DailyListView(forecastWeather: $forecastWeather)
+//                        .frame(height: 6 * 50)
                         .cornerRadius(10)
-                    DataListView()
+                    DataListView(currentWeather: $currentWeather)
                 }
                 .frame(width: UIScreen.main.bounds.width - 40)
                 .overlay(
@@ -103,16 +104,16 @@ struct HomeView: View {
         }
     }
     
-    func fetchData() async {
+    private func fetchData() async {
         do {
             if let latitude = locationDataManager.locationManager.location?.coordinate.latitude, let longitude = locationDataManager.locationManager.location?.coordinate.longitude {
                 let result = try await withThrowingTaskGroup(of: WeatherDataModel.self, returning: (CurrentDataModel?, ForecastDataModel?).self) { group in
                     group.addTask {
-                        let weather: CurrentDataModel? = try await APIService.shared.fetchData(endpoint: .currentWeatherData(latitude: Float(latitude), longitude: Float(longitude)))
+                        let weather: CurrentDataModel? = try await APIService.shared.fetchData(endpoint: .currentWeatherData(latitude: 38.49457, longitude: 43.38323))
                         return .weather(weather)
                     }
                     group.addTask {
-                        let forecast: ForecastDataModel? = try await APIService.shared.fetchData(endpoint: .forecastWeatherData(latitude: Float(latitude), longitude: Float(longitude)))
+                        let forecast: ForecastDataModel? = try await APIService.shared.fetchData(endpoint: .forecastWeatherData(latitude: 38.49457, longitude: 43.38323))
                         return .forecast(forecast)
                     }
                     
@@ -141,7 +142,7 @@ struct HomeView: View {
         }
     }
     
-    func getTitleOpacity() -> CGFloat {
+    private func getTitleOpacity() -> CGFloat {
         let titleOffset = -getTitleOffset()
         
         let progress = titleOffset / 30
@@ -151,7 +152,7 @@ struct HomeView: View {
         return opacity
     }
     
-    func getTitleOffset() -> CGFloat {
+    private func getTitleOffset() -> CGFloat {
         if offset < 0 {
             let progress = -offset / 180
             

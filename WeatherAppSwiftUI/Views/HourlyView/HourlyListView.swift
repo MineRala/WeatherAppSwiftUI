@@ -12,11 +12,16 @@ struct HourlyListView: View {
     @Binding var currentWeather: CurrentDataModel?
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Daily Forecast".uppercased())
-                .font(.headline)
-                .padding(.top)
-                .padding(.leading, 10)
-                .foregroundColor(.white)
+            HStack {
+                Image(systemName: "calendar.circle")
+                    .frame(width: 8, height: 8, alignment: .center)
+                    .foregroundColor(.white)
+                Text("Daily Forecast".uppercased())
+                    .foregroundColor(.white)
+                    .padding(.leading, 4)
+                    .font(.headline)
+            }
+            .padding([.top, .leading])
             Divider()
                 .background(.black).opacity(0.3)
                 .padding([.bottom, .leading], 10)

@@ -80,6 +80,6 @@ struct City: Decodable, Hashable {
     let country: String?
     let population: Int?
     let timezone: Int?
-    let sunrise: Int?
-    let sunset: Int?
+    let sunrise: Date?
+    let sunset: Date?
 }

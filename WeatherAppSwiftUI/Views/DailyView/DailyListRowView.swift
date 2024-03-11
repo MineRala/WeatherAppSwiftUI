@@ -8,39 +8,71 @@
 import SwiftUI
 
 struct DailyListRowView: View {
+    let items: [ForecastList?]
     var body: some View {
         HStack() {
-            Text("Bugün")
+            Text(formatDate(dtStr: items[0]?.dtTxt ?? "").dayNameOrToday)
                 .foregroundColor(.white)
-                .frame(minHeight: 20, alignment: .leading)
+                .frame(maxWidth: 80, minHeight: 20, alignment: .leading)
                 .font(.subheadline)
                 .fontWeight(.bold)
-            Spacer()
             VStack {
-                Image(systemName: "smoke")
-                    .frame(width: 16, height: 16)
-                    .foregroundColor(.white)
-                    .padding(.leading, 4)
+                Spacer()
+                AsyncImage(url: URL(string: "https://openweathermap.org/img/wn/\(items[0]?.weather[0]?.icon ?? "")@2x.png")) { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                } placeholder: {}
+                .frame(width: 32, height: 32)
+                .foregroundColor(.white)
+                .padding(.leading, 4)
+                Spacer()
             }
             .padding(.top, 4)
             Spacer()
-            Text("22°")
-                .foregroundColor(.white)
-                .font(.title3)
-            Rectangle()
-                .frame(width: 50, height: 3)
-                .foregroundColor(.white)
-            Text("36°")
-                .foregroundColor(.white)
-                .font(.title3)
+            HStack {
+                Text("\(Int(minTempMin()))°")
+                    .foregroundColor(.white)
+                    .font(.title3)
+                    .frame(maxWidth: 40, alignment: .trailing)
+                Rectangle()
+                    .frame(width: 80, height: 3)
+                    .foregroundColor(.white)
+                Text("\(Int(maxTempMax()))°")
+                    .foregroundColor(.white)
+                    .font(.title3)
+                    .frame(maxWidth: 30 , alignment: .trailing)
+            }
+            .frame(maxWidth: .infinity, alignment: .trailing)
         }
         .padding()
         .listRowBackground(Color.clear)
         .cornerRadius(10)
     }
+    
+    private func formatDate(dtStr: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return formatter.date(from: dtStr) ?? Date()
+    }
+    
+    private func minTempMin() -> Float {
+        guard let firstTempMin = items[0]?.main?.tempMin else { return 0.0 }
+        let minTemp = items.compactMap { $0?.main?.tempMin }.min() ?? firstTempMin
+        return min(firstTempMin, minTemp)
+    }
+    
+    private func maxTempMax() -> Float {
+        guard let firstTempMax = items[0]?.main?.tempMax else { return 0.0 }
+        let maxTemp = items.compactMap { $0?.main?.tempMin }.max() ?? firstTempMax
+        return max(firstTempMax, maxTemp)
+    }
+    
+    
 }
 
 #Preview {
-    DailyListRowView()
-        .background(.blue)
+    //    DailyListRowView()
+    //        .background(.blue)
+    ContentView()
 }

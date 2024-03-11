@@ -7,111 +7,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B6E9CE53-1A65-4CD2-931B-5BF2B8508E17"
+            uuid = "28FE58DF-E798-4E70-90D8-369F0101968D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WeatherAppSwiftUI/Service/APIService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "APIService"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "B6E9CE53-1A65-4CD2-931B-5BF2B8508E17 - 767f3a19178b6042"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for WeatherAppSwiftUI.APIService.fetchData(endpoint: WeatherAppSwiftUI.Endpoint) async throws -&gt; WeatherAppSwiftUI.CurrentDataModel"
-                  moduleName = "WeatherAppSwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Service/APIService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "228">
-               </Location>
-               <Location
-                  uuid = "B6E9CE53-1A65-4CD2-931B-5BF2B8508E17 - e4a719b6bbae885b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for WeatherAppSwiftUI.APIService.fetchData(endpoint: WeatherAppSwiftUI.Endpoint) async throws -&gt; WeatherAppSwiftUI.CurrentDataModel"
-                  moduleName = "WeatherAppSwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Service/APIService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  uuid = "B6E9CE53-1A65-4CD2-931B-5BF2B8508E17 - a544ccc8a474a340"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for WeatherAppSwiftUI.APIService.fetchData(endpoint: WeatherAppSwiftUI.Endpoint) async throws -&gt; WeatherAppSwiftUI.CurrentDataModel"
-                  moduleName = "WeatherAppSwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Service/APIService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "76">
-               </Location>
-               <Location
-                  uuid = "B6E9CE53-1A65-4CD2-931B-5BF2B8508E17 - fb2057d0fb327cc1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for WeatherAppSwiftUI.APIService.fetchData(endpoint: WeatherAppSwiftUI.Endpoint) async throws -&gt; WeatherAppSwiftUI.CurrentDataModel"
-                  moduleName = "WeatherAppSwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Service/APIService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "40">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "90BCD863-542E-444C-A2C0-41A947709943"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeatherAppSwiftUI/Service/APIService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "APIService"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1381F010-4849-4EC7-8BF9-2D484CC409B9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeatherAppSwiftUI/Managers/LocationManager.swift"
+            filePath = "WeatherAppSwiftUI/Views/DailyView/DailyListView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "17"
             endingLineNumber = "17"
-            landmarkName = "locationManagerDidChangeAuthorization(_:)"
-            landmarkType = "7">
+            landmarkName = "groupedItems"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "28FE58DF-E798-4E70-90D8-369F0101968D - c579a200014b04de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppSwiftUI.DailyListView.groupedItems.getter : Swift.Array&lt;Swift.Array&lt;Swift.Optional&lt;WeatherAppSwiftUI.ForecastList&gt;&gt;&gt;"
+                  moduleName = "WeatherAppSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Views/DailyView/DailyListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "552">
+               </Location>
+               <Location
+                  uuid = "28FE58DF-E798-4E70-90D8-369F0101968D - 9fbb85bc2372d745"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 ((key: Foundation.Date, value: Swift.Array&lt;Swift.Optional&lt;WeatherAppSwiftUI.ForecastList&gt;&gt;), (key: Foundation.Date, value: Swift.Array&lt;Swift.Optional&lt;WeatherAppSwiftUI.ForecastList&gt;&gt;)) -&gt; Swift.Bool in WeatherAppSwiftUI.DailyListView.groupedItems.getter : Swift.Array&lt;Swift.Array&lt;Swift.Optional&lt;WeatherAppSwiftUI.ForecastList&gt;&gt;&gt;"
+                  moduleName = "WeatherAppSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Views/DailyView/DailyListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "28FE58DF-E798-4E70-90D8-369F0101968D - ee67aae33e758997"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 ((key: Foundation.Date, value: Swift.Array&lt;Swift.Optional&lt;WeatherAppSwiftUI.ForecastList&gt;&gt;)) -&gt; Swift.Array&lt;Swift.Optional&lt;WeatherAppSwiftUI.ForecastList&gt;&gt; in WeatherAppSwiftUI.DailyListView.groupedItems.getter : Swift.Array&lt;Swift.Array&lt;Swift.Optional&lt;WeatherAppSwiftUI.ForecastList&gt;&gt;&gt;"
+                  moduleName = "WeatherAppSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Views/DailyView/DailyListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
