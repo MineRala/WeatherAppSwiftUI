@@ -109,11 +109,11 @@ struct HomeView: View {
             if let latitude = locationDataManager.locationManager.location?.coordinate.latitude, let longitude = locationDataManager.locationManager.location?.coordinate.longitude {
                 let result = try await withThrowingTaskGroup(of: WeatherDataModel.self, returning: (CurrentDataModel?, ForecastDataModel?).self) { group in
                     group.addTask {
-                        let weather: CurrentDataModel? = try await APIService.shared.fetchData(endpoint: .currentWeatherData(latitude: 38.49457, longitude: 43.38323))
+                        let weather: CurrentDataModel? = try await APIService.shared.fetchData(endpoint: .currentWeatherData(latitude: Float(latitude), longitude: Float(longitude)))
                         return .weather(weather)
                     }
                     group.addTask {
-                        let forecast: ForecastDataModel? = try await APIService.shared.fetchData(endpoint: .forecastWeatherData(latitude: 38.49457, longitude: 43.38323))
+                        let forecast: ForecastDataModel? = try await APIService.shared.fetchData(endpoint: .forecastWeatherData(latitude: Float(latitude), longitude: Float(longitude)))
                         return .forecast(forecast)
                     }
                     
