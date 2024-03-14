@@ -39,8 +39,5 @@ struct DataListRowView: View {
 }
 
 #Preview {
-//    DataListRowView()
-//        .background(.blue)
-//        .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.width * 0.4)
     ContentView()
 }

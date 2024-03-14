@@ -23,7 +23,7 @@ struct HourlyListColumnView: View {
             }
             .frame(width: 32, height: 32)
             Spacer()
-            Text("\(Int(forecast?.main?.temp ?? 0))°")
+            Text(forecast?.main?.temp != nil ? String(Int(round(forecast?.main?.temp ?? 0))) + "°" : "-")
                 .fontWeight(.medium)
         }
     }

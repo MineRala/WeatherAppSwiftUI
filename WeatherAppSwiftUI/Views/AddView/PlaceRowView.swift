@@ -5,23 +5,25 @@
 //  Created by Mine Rala on 28.02.2024.
 //
 
+import Foundation
 import SwiftUI
 
 struct PlaceRowView: View {
+    var item: ItemModel
     var body: some View {
         HStack() {
             VStack(alignment: .leading) {
-                Text("Konumum")
-                Text("İzmir")
+                Text(item.title)
+                Text(item.timestamp.hourAndMinuteIdentifier(timezone: item.timezone))
                 Spacer()
-                Text("Çok Bulutlu")
+                Text(item.desc)
             }
             Spacer()
             VStack(alignment: .trailing) {
-                Text("14°")
+                Text("\(Int(round(item.temp)))°")
                     .font(.system(size: 40))
                 Spacer()
-                Text("D:10° Y:20°")
+                Text("L:\(Int(round(item.minTemp)))° H:\(Int(round(item.maxTemp)))°")
             }
         }
         .padding()
@@ -37,7 +39,5 @@ struct PlaceRowView: View {
 }
 
 #Preview {
-    PlaceRowView()
-        .frame(width: UIScreen.main.bounds.width - 40, height: 85)
-        .cornerRadius(12)
+    ContentView()
 }

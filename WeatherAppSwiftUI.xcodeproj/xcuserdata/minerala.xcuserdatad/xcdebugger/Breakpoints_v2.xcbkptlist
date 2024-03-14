@@ -7,64 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "28FE58DF-E798-4E70-90D8-369F0101968D"
+            uuid = "F24A1D3F-4E89-43AA-AB62-C18D0FCFF789"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WeatherAppSwiftUI/Views/DailyView/DailyListView.swift"
+            filePath = "WeatherAppSwiftUI/Views/MainView/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "groupedItems"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "body"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "28FE58DF-E798-4E70-90D8-369F0101968D - c579a200014b04de"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "WeatherAppSwiftUI.DailyListView.groupedItems.getter : Swift.Array&lt;Swift.Array&lt;Swift.Optional&lt;WeatherAppSwiftUI.ForecastList&gt;&gt;&gt;"
-                  moduleName = "WeatherAppSwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Views/DailyView/DailyListView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "552">
-               </Location>
-               <Location
-                  uuid = "28FE58DF-E798-4E70-90D8-369F0101968D - 9fbb85bc2372d745"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 ((key: Foundation.Date, value: Swift.Array&lt;Swift.Optional&lt;WeatherAppSwiftUI.ForecastList&gt;&gt;), (key: Foundation.Date, value: Swift.Array&lt;Swift.Optional&lt;WeatherAppSwiftUI.ForecastList&gt;&gt;)) -&gt; Swift.Bool in WeatherAppSwiftUI.DailyListView.groupedItems.getter : Swift.Array&lt;Swift.Array&lt;Swift.Optional&lt;WeatherAppSwiftUI.ForecastList&gt;&gt;&gt;"
-                  moduleName = "WeatherAppSwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Views/DailyView/DailyListView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "48">
-               </Location>
-               <Location
-                  uuid = "28FE58DF-E798-4E70-90D8-369F0101968D - ee67aae33e758997"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 ((key: Foundation.Date, value: Swift.Array&lt;Swift.Optional&lt;WeatherAppSwiftUI.ForecastList&gt;&gt;)) -&gt; Swift.Array&lt;Swift.Optional&lt;WeatherAppSwiftUI.ForecastList&gt;&gt; in WeatherAppSwiftUI.DailyListView.groupedItems.getter : Swift.Array&lt;Swift.Array&lt;Swift.Optional&lt;WeatherAppSwiftUI.ForecastList&gt;&gt;&gt;"
-                  moduleName = "WeatherAppSwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Views/DailyView/DailyListView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "96">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -30,14 +30,14 @@ struct DailyListRowView: View {
             }
             .padding(.top, 4)
             HStack {
-                Text("\(Int(minTempMin()))°")
+                Text("\(Int(round(minTempMin())))°")
                     .foregroundColor(.white)
                     .font(.title3)
                     .frame(maxWidth: 40, alignment: .trailing)
                 Rectangle()
                     .frame(width: 80, height: 3)
                     .foregroundColor(.white)
-                Text("\(Int(maxTempMax()))°")
+                Text("\(Int(round(maxTempMax())))°")
                     .foregroundColor(.white)
                     .font(.title3)
                     .frame(maxWidth: 40 , alignment: .trailing)

@@ -6,57 +6,63 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AddView: View {
-    @State var searchText = ""
     @State var isLocationList: Bool = true
     @State private var isPresented = false
     @State private var deleteItemIndex = 0
-    @State  var list: [Model] = [Model(title: "kdfjkd"), Model(title: "laİŞ"), Model(title: "weowekwl"), Model(title: "falka"), Model(title: "MKSMD")]
-    @State  var lists: [String] = ["kdfjkd", "laİŞ", "weowekwl", "falka", "MKSMD", "fama"]
-    @Binding var isRowTapped: Bool
+    @StateObject var viewModel: AddViewModel
+    var sendData: (LocationType, AnnotationItem) -> Void
+    @Environment(\.modelContext) private var context
+    @Query private var items: [ItemModel]
+    @Binding var newModel: ItemModel?
     
-    init(isRowTapped: Binding<Bool>) {
-        _isRowTapped = isRowTapped
+    init(viewModel: AddViewModel, newModel: Binding<ItemModel?>, sendData: @escaping (LocationType, AnnotationItem) -> Void) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+        self._newModel = newModel
+        self.sendData = sendData
         Theme.navigationBarColors(background: .black, titleColor: .white)
-    }
-    
-    var searchResults: [String] {
-        guard !isLocationList else { return [] }
-        if searchText.isEmpty {
-            return lists
-        } else {
-            return lists.filter { $0.localizedCaseInsensitiveContains(searchText) }
-        }
     }
     
     var body: some View {
         NavigationView {
             List {
-                if !isLocationList && searchResults.isEmpty {
-                    NoResultsView(searchText: $searchText)
-                        .listRowBackground(Color.black)
-                        .frame(maxWidth: .infinity)
-                        .background(Color.black)
+                if !isLocationList && viewModel.results.isEmpty {
+                    NoResultsView(searchText: $viewModel.searchableText)
                 } else {
                     if !isLocationList {
-                        ForEach(searchResults, id: \.self) { item in
-                            Text(item.capitalized)
-                                .listRowBackground(Color.black)
-                                .foregroundColor(.white)
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                        ForEach(viewModel.results) { item in
+                            TextView(title: item.title)
+                                .simultaneousGesture(
+                                    TapGesture()
+                                        .onEnded { _ in
+                                            Task {
+                                                await viewModel.getPlace(from: item)
+                                                await MainActor.run {
+                                                    sendData(.add, viewModel.annotationItems.first ?? AnnotationItem(latitude: 1, longitude: 1))
+                                                }
+                                            }
+                                        }
+                                )
                         }
                     } else {
-                        ForEach(Array(list.enumerated()), id: \.element.id) { index, item in
-                            PlaceRowView()
+                        ForEach(items) { item in
+                            PlaceRowView(item: item)
                                 .onTapGesture {
-                                    isRowTapped = true
+                                    Task {
+                                        await MainActor.run {
+                                            let annotationItem = AnnotationItem(latitude: Double(item.lat), longitude: Double(item.long))
+                                            sendData(.display, annotationItem)
+                                        }
+                                    }
                                 }
                                 .frame(width: UIScreen.main.bounds.width - 40, height: 85)
                                 .swipeActions {
                                     Button(action: {
-                                        print("Delete Index: \(index), Delete Item: \(item)")
-                                        list.remove(at: index)
+                                        if let index = items.firstIndex(of: item) {
+                                            deleteItem(at: index)
+                                        }
                                     }) {
                                         Image(systemName: "trash")
                                     }
@@ -64,7 +70,6 @@ struct AddView: View {
                                 }
                                 .padding([.top, .bottom])
                                 .listRowBackground(Color.black)
-                            
                         }
                         .background(Color.black)
                         .listRowSeparator(.hidden)
@@ -73,15 +78,61 @@ struct AddView: View {
             }
             .background(Color.black)
             .scrollContentBackground(.hidden)
-            .searchable(text: $searchText, prompt: "Şehir veya havaalanı arayın")
-            .onChange(of: searchText) { _, _ in
-                isLocationList = searchText.isEmpty
+            .searchable(text: $viewModel.searchableText, prompt: "Search for a city or airport")
+            .onChange(of: viewModel.searchableText) { _, newValue in
+                isLocationList = viewModel.searchableText.isEmpty
+                viewModel.searchAddress(newValue)
             }
-            .navigationTitle("Hava Durumu")
+            .onChange(of: newModel) { _, newModelValue in
+                if let new = newModelValue {
+                    context.insert(new)
+                }
+            }
+            .onAppear {
+                for item in items {
+                   fetchAndUpdateItem(item)
+                }
+            }
+            .navigationTitle("Weather")
+        }
+    }
+    
+    private func deleteItem(at index: Int) {
+        let model = items[index]
+        deleteModelFromUserDefaults(model)
+        context.delete(model)
+        try? context.save()
+    }
+    
+    private func deleteModelFromUserDefaults(_ model: ItemModel) {
+        if let savedLatitude = UserDefaults.standard.object(forKey: "latitude") as? Double,  let savedLongitude =  UserDefaults.standard.object(forKey: "longitude") as? Double, savedLatitude == Double(model.lat), savedLongitude == Double(model.long) {
+            UserDefaults.standard.removeObject(forKey: "latitude")
+            UserDefaults.standard.removeObject(forKey: "longitude")
+            print("Longitude değeri silindi.")
+        } else {
+            print("Silinecek bir Longitude değeri bulunamadı.")
+        }
+    }
+    
+    private func fetchAndUpdateItem(_ item: ItemModel) {
+        let coordinates = (item.lat, item.long)
+        Task {
+            do {
+                let currentWeather: CurrentDataModel = try await APIService.shared.fetchData(endpoint: .currentWeatherData(latitude: coordinates.0, longitude: coordinates.1))
+                item.timestamp = Date()
+                item.title = currentWeather.name ?? ""
+                item.desc = currentWeather.weather.first??.main ?? ""
+                item.temp = currentWeather.main?.temp ?? 0
+                item.minTemp = currentWeather.main?.tempMin ?? 0
+                item.maxTemp = currentWeather.main?.tempMax ?? 0
+                try? context.save()
+            } catch {
+                print("Error: \(error)")
+            }
         }
     }
 }
 
 #Preview {
-    AddView(isRowTapped: .constant(true))
+    ContentView()
 }

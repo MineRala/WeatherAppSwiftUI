@@ -18,7 +18,7 @@ struct SubView: View {
             .padding(.top, 34)
         ZStack {
             VStack {
-                Text(currentWeather?.main?.temp != nil ? String(Int(currentWeather?.main?.temp ?? 0)) + "°" : "-")
+                Text(currentWeather?.main?.temp != nil ? String(Int(round(currentWeather?.main?.temp ?? 0))) + "°" : "-")
                     .foregroundColor(.white)
                     .font(.system(size: 80))
                     .fontWeight(.thin)
@@ -28,7 +28,7 @@ struct SubView: View {
                     .font(.title2)
                     .fontWeight(.semibold)
                     .opacity(opacity)
-                Text("Y: \(Int(round(currentWeather?.main?.tempMin ?? 0)))° D:\(Int(round(currentWeather?.main?.tempMax ?? 0)))°")
+                Text("H: " + (currentWeather?.main?.tempMax != nil ? "\(Int(round(currentWeather?.main?.tempMax ?? 0)))°" : "-") + " L: " + (currentWeather?.main?.tempMin != nil ? "\(Int(round(currentWeather?.main?.tempMin ?? 0)))°" : "-"))
                     .foregroundColor(.white)
                     .font(.title3)
                     .fontWeight(.medium)

@@ -57,6 +57,12 @@ extension Date {
         let identifier = DateFormatter.hourBasicFormatter.string(from: date)
         return identifier
     }
+    
+    func hourAndMinuteIdentifier(timezone: Int) -> String {
+        let date = self
+        let identifier = DateFormatter.hourAndMinuteFormatter(timezone: timezone).string(from: date)
+        return identifier
+    }
 }
 
 
@@ -66,6 +72,13 @@ extension DateFormatter {
         dateFormatter.dateFormat =  "dd_MM_yyyy"
         return dateFormatter
     }()
+ 
+    static func hourAndMinuteFormatter(timezone: Int) -> DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: timezone)
+        dateFormatter.dateFormat = "HH:mm"
+        return dateFormatter
+    }
     
     static let hourBasicFormatter: DateFormatter = {
         let formatter = DateFormatter()
