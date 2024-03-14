@@ -20,10 +20,12 @@ struct NoResultsView: View {
             Text("No Results")
                 .foregroundColor(.white)
                 .font(.title2)
-            Text("\"\(searchText)\" için sonuç yok.")
+            Text("No results found for \"\(searchText)\"")
                 .foregroundColor(.gray)
                 .font(.title3)
         }
+        .listRowBackground(Color.black)
+        .frame(maxWidth: .infinity)
         .background(.black)
         .padding()
     }
