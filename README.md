@@ -1,4 +1,4 @@
-# MovieApp
+# WeatherApp
 
 # Pages
 - Splash Screen
