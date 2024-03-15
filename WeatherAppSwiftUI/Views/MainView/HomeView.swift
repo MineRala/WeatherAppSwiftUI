@@ -9,11 +9,6 @@ import SwiftUI
 import CoreLocation
 import SwiftData
 
-enum LocationType {
-    case add
-    case display
-}
-
 struct HomeView: View {
     @State private var selection = 0
     @State var currentWeather: CurrentDataModel?
@@ -34,7 +29,7 @@ struct HomeView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 16) {
                     SubView(opacity: getTitleOpacity(), currentWeather: $currentWeather)
                         .offset(y: -offset)
@@ -63,7 +58,6 @@ struct HomeView: View {
                 Image(systemName: "house")
             }
             .tag(0)
-            .scrollIndicators(.hidden)
             .background(
                 Image("hv")
                     .resizable()
@@ -123,7 +117,10 @@ struct HomeView: View {
             Button("Dismiss", role: .cancel) { }
         }
     }
+}
 
+// MARK: - Functionalities
+extension HomeView {
     private func fetchWeather(lat: Double? = nil, long: Double? = nil) async {
         // Koordinatları belirle
         guard let coordinate = determineCoordinate(lat: lat, long: long) else {
@@ -203,12 +200,7 @@ struct HomeView: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     ContentView()
 }
-
-enum WeatherDataModel {
-    case weather(CurrentDataModel?)
-    case forecast(ForecastDataModel?)
-}
-

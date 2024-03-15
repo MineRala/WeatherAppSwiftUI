@@ -68,7 +68,7 @@ struct AddView: View {
                                     }
                                     .tint(.red)
                                 }
-                                .padding([.top, .bottom])
+                                .padding([.top, .bottom], 10)
                                 .listRowBackground(Color.black)
                         }
                         .background(Color.black)
@@ -96,7 +96,10 @@ struct AddView: View {
             .navigationTitle("Weather")
         }
     }
-    
+}
+
+// MARK: - Functionalities
+extension AddView {
     private func deleteItem(at index: Int) {
         let model = items[index]
         deleteModelFromUserDefaults(model)
@@ -132,7 +135,7 @@ struct AddView: View {
         }
     }
 }
-
+// MARK: - Preview
 #Preview {
     ContentView()
 }

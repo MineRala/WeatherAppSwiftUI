@@ -24,6 +24,7 @@ class AddViewModel: NSObject, ObservableObject {
     }
 }
 
+// MARK: MKLocalSearchCompleterDelegate
 extension AddViewModel: MKLocalSearchCompleterDelegate {
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         Task { @MainActor in

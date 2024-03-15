@@ -48,30 +48,30 @@ struct DailyListRowView: View {
         .listRowBackground(Color.clear)
         .cornerRadius(10)
     }
-    
+}
+
+// MARK: - Functionalities
+extension DailyListRowView {
     private func formatDate(dtStr: String) -> Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return formatter.date(from: dtStr) ?? Date()
     }
-    
+
     private func minTempMin() -> Float {
         guard let firstTempMin = items[0]?.main?.tempMin else { return 0.0 }
         let minTemp = items.compactMap { $0?.main?.tempMin }.min() ?? firstTempMin
         return min(firstTempMin, minTemp)
     }
-    
+
     private func maxTempMax() -> Float {
         guard let firstTempMax = items[0]?.main?.tempMax else { return 0.0 }
         let maxTemp = items.compactMap { $0?.main?.tempMin }.max() ?? firstTempMax
         return max(firstTempMax, maxTemp)
     }
-    
-    
 }
 
+// MARK: - Preview
 #Preview {
-    //    DailyListRowView()
-    //        .background(.blue)
     ContentView()
 }

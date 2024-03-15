@@ -25,7 +25,7 @@ struct HourlyListView: View {
             Divider()
                 .background(.black).opacity(0.3)
                 .padding([.bottom, .leading], 10)
-            ScrollView(.horizontal) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: [GridItem(.flexible())], spacing: 8) {
                     if let forecastWeather {
                         let subArray = Array(forecastWeather.list.prefix(8))
@@ -38,12 +38,12 @@ struct HourlyListView: View {
                 }
                 .padding(.bottom, 12)
             }
-            .scrollIndicators(.hidden)
         }
         .background(Color.blue.opacity(0.8))
     }
 }
 
+// MARK: - Preview
 #Preview {
     ContentView()
 }

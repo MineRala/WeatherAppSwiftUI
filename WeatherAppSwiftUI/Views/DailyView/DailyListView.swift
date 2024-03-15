@@ -44,9 +44,11 @@ struct DailyListView: View {
         }
         .frame(height: CGFloat((groupedItems.count + 1)) * 50)
         .background(Color.blue.opacity(0.8))
-//        .frame(maxHeight: .infinity)
     }
-    
+}
+
+// MARK: - Functionalities
+extension DailyListView {
     private func formatDate(dtStr: String) -> Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -58,6 +60,7 @@ struct DailyListView: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     ContentView()
 }

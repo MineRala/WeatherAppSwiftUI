@@ -38,6 +38,7 @@ struct PlaceRowView: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     ContentView()
 }

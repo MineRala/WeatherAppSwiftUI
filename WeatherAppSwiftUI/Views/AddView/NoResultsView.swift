@@ -31,6 +31,7 @@ struct NoResultsView: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     NoResultsView(searchText: .constant("Search"))
         .background(.black)
