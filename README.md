@@ -16,11 +16,14 @@
 - Accesses location information.
 - Used Open weather API for weather data.
 - Used Core Location for location.
+- Used SwiftData and UserDefaults for local database.
 
 # Technologies
 - SwiftUI
 - MVC
 - Async/Await
+- Swift Data
+- User Defaults
 
 
 https://github.com/MineRala/WeatherAppSwiftUI/assets/47946453/66a76d4f-7793-4b0a-8078-e254e425dc87
