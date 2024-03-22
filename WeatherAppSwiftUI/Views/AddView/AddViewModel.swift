@@ -46,12 +46,14 @@ extension AddViewModel: MKLocalSearchCompleterDelegate {
         
         do {
             let response = try await MKLocalSearch(request: request).start()
-            DispatchQueue.main.async {
-                self.annotationItems = response.mapItems.map {
-                    AnnotationItem(
-                        latitude: $0.placemark.coordinate.latitude,
-                        longitude: $0.placemark.coordinate.longitude
-                    )
+            Task {
+                await MainActor.run {
+                    self.annotationItems = response.mapItems.map {
+                        AnnotationItem(
+                            latitude: $0.placemark.coordinate.latitude,
+                            longitude: $0.placemark.coordinate.longitude
+                        )
+                    }
                 }
             }
         } catch {

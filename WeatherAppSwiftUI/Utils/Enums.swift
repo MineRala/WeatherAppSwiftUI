@@ -7,11 +7,6 @@
 
 import Foundation
 
-enum WeatherDataModel {
-    case weather(CurrentDataModel?)
-    case forecast(ForecastDataModel?)
-}
-
 enum LocationType {
     case add
     case display
