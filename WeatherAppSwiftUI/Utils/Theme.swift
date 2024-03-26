@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class Theme {
+final class Theme {
     static func navigationBarColors(background : UIColor?,
                                     titleColor : UIColor? = nil, tintColor : UIColor? = nil ){
         

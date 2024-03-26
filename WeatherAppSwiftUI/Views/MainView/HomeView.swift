@@ -17,7 +17,9 @@ struct HomeView: View {
     @State private var locationDeniedAlertShow = false
     @StateObject var locationDataManager = LocationDataManager()
     @State var newModel: ItemModel?
-
+    @State private var showAlertForError = false
+    @State private var alertMessage = ""
+    
     init() {
         UITabBar.appearance().barTintColor = .black
         let standardAppearance = UITabBarAppearance()
@@ -83,7 +85,6 @@ struct HomeView: View {
                             long: Float(item.longitude),
                             timezone: currentWeather?.timezone ?? 0
                         )
-                      
                     }
                 }
             }
@@ -116,6 +117,9 @@ struct HomeView: View {
             }
             Button("Dismiss", role: .cancel) { }
         }
+        .alert(isPresented: $showAlertForError) {
+            Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+        }
     }
 }
 
@@ -127,17 +131,20 @@ extension HomeView {
             print("Error: Coordinate is nil")
             return
         }
-
-        // Hava durumu verilerini al
         do {
             let (currentWeather, forecastWeather) = try await fetchCurrentAndForecastWeather(coordinate: coordinate)
             self.currentWeather = currentWeather
             self.forecastWeather = forecastWeather
+        } catch let error as AppError {
+            showAlertForError = true
+            alertMessage = error.errorMessage
+            print("Error: \(error.errorMessage)")
         } catch {
-            print("Error: \(error)")
+            showAlertForError = true
+            alertMessage = "An unknown error occurred."
         }
     }
-
+    
     private func determineCoordinate(lat: Double?, long: Double?) -> (Double, Double)? {
         if let lat, let long {
             return (lat, long)
@@ -148,7 +155,7 @@ extension HomeView {
         }
         return nil
     }
-
+    
     private func fetchCurrentAndForecastWeather(coordinate: (Double, Double)) async throws -> (CurrentDataModel?, ForecastDataModel?) {
         // Hava durumu verilerini alma işlemi
         return try await withThrowingTaskGroup(of: (CurrentDataModel?, ForecastDataModel?).self) { group in
@@ -176,7 +183,7 @@ extension HomeView {
             return (weather, forecast)
         }
     }
-
+    
     private func getTitleOpacity() -> CGFloat {
         let titleOffset = -getTitleOffset()
         

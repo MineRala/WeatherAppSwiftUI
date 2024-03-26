@@ -7,7 +7,7 @@
 
 import MapKit
 
-class AddViewModel: NSObject, ObservableObject {
+final class AddViewModel: NSObject, ObservableObject {
     @Published private(set) var results: Array<AddressResult> = []
     @Published var searchableText = ""
     @Published private(set) var annotationItems: [AnnotationItem] = []

@@ -1,7 +1,7 @@
 import Foundation
 import CoreLocation
 
-class LocationDataManager : NSObject, ObservableObject, CLLocationManagerDelegate {
+final class LocationDataManager : NSObject, ObservableObject, CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
     @Published var authorizationStatus: CLAuthorizationStatus?
 

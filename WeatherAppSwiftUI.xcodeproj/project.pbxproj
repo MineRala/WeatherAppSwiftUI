@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E81816232BB2E5F50085715B /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81816222BB2E5F50085715B /* AppError.swift */; };
 		E83A689F2BA31F5600EAFA3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E83A689E2BA31F5600EAFA3E /* LaunchScreen.storyboard */; };
 		E83A68AB2BA4676000EAFA3E /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83A68AA2BA4676000EAFA3E /* Enums.swift */; };
 		E87492192B88B23D00376D4C /* WeatherAppSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87492182B88B23D00376D4C /* WeatherAppSwiftUIApp.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E81816222BB2E5F50085715B /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		E83A689E2BA31F5600EAFA3E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E83A68AA2BA4676000EAFA3E /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		E87492152B88B23D00376D4C /* WeatherAppSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherAppSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,6 +219,7 @@
 				E8AF6AF02B9A046B00A315FC /* Date.swift */,
 				E8AF6AF22B9F1A3D00A315FC /* String.swift */,
 				E83A68AA2BA4676000EAFA3E /* Enums.swift */,
+				E81816222BB2E5F50085715B /* AppError.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				E874922D2B88D12B00376D4C /* DailyListRowView.swift in Sources */,
 				E87492492B9614D100376D4C /* APIService.swift in Sources */,
 				E874922B2B88CDCB00376D4C /* DailyListView.swift in Sources */,
+				E81816232BB2E5F50085715B /* AppError.swift in Sources */,
 				EBEF84B02B8DEF0A0049543A /* HomeView.swift in Sources */,
 				E874921B2B88B23D00376D4C /* ContentView.swift in Sources */,
 				E874924E2B961EA000376D4C /* Endpoint.swift in Sources */,
