@@ -133,8 +133,10 @@ extension HomeView {
         }
         do {
             let (currentWeather, forecastWeather) = try await fetchCurrentAndForecastWeather(coordinate: coordinate)
-            self.currentWeather = currentWeather
-            self.forecastWeather = forecastWeather
+            await MainActor.run {
+                self.currentWeather = currentWeather
+                self.forecastWeather = forecastWeather
+            }
         } catch let error as AppError {
             showAlertForError = true
             alertMessage = error.errorMessage
