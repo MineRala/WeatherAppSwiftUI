@@ -71,6 +71,7 @@ struct HomeView: View {
                 Task {
                     UserDefaults.standard.set(item.latitude, forKey: "latitude")
                     UserDefaults.standard.set(item.longitude, forKey: "longitude")
+                    UserDefaults.standard.synchronize()
                     await fetchWeather(lat: item.latitude, long: item.longitude)
                     selection = 0
                     if type == .add {
@@ -81,8 +82,8 @@ struct HomeView: View {
                             temp: currentWeather?.main?.temp ?? 0,
                             minTemp: currentWeather?.main?.tempMin ?? 0,
                             maxTemp: currentWeather?.main?.tempMax ?? 0,
-                            lat: Float(item.latitude),
-                            long: Float(item.longitude),
+                            lat: item.latitude,
+                            long: item.longitude,
                             timezone: currentWeather?.timezone ?? 0
                         )
                     }
@@ -133,10 +134,8 @@ extension HomeView {
         }
         do {
             let (currentWeather, forecastWeather) = try await fetchCurrentAndForecastWeather(coordinate: coordinate)
-            await MainActor.run {
-                self.currentWeather = currentWeather
-                self.forecastWeather = forecastWeather
-            }
+            self.currentWeather = currentWeather
+            self.forecastWeather = forecastWeather
         } catch let error as AppError {
             showAlertForError = true
             alertMessage = error.errorMessage
@@ -162,11 +161,11 @@ extension HomeView {
         // Hava durumu verilerini alma işlemi
         return try await withThrowingTaskGroup(of: (CurrentDataModel?, ForecastDataModel?).self) { group in
             group.addTask {
-                let weather: CurrentDataModel? = try await APIService.shared.fetchData(endpoint: .currentWeatherData(latitude: Float(coordinate.0), longitude: Float(coordinate.1)))
+                let weather: CurrentDataModel? = try await APIService.shared.fetchData(endpoint: .currentWeatherData(latitude: coordinate.0, longitude: coordinate.1))
                 return (weather, nil)
             }
             group.addTask {
-                let forecast: ForecastDataModel? = try await APIService.shared.fetchData(endpoint: .forecastWeatherData(latitude: Float(coordinate.0), longitude: Float(coordinate.1)))
+                let forecast: ForecastDataModel? = try await APIService.shared.fetchData(endpoint: .forecastWeatherData(latitude: coordinate.0, longitude: coordinate.1))
                 return (nil, forecast)
             }
             

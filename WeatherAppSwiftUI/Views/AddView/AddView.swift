@@ -52,7 +52,7 @@ struct AddView: View {
                                 .onTapGesture {
                                     Task {
                                         await MainActor.run {
-                                            let annotationItem = AnnotationItem(latitude: Double(item.lat), longitude: Double(item.long))
+                                            let annotationItem = AnnotationItem(latitude: item.lat, longitude: item.long)
                                             sendData(.display, annotationItem)
                                         }
                                     }
@@ -108,15 +108,16 @@ extension AddView {
     }
     
     private func deleteModelFromUserDefaults(_ model: ItemModel) {
-        if let savedLatitude = UserDefaults.standard.object(forKey: "latitude") as? Double,  let savedLongitude =  UserDefaults.standard.object(forKey: "longitude") as? Double, savedLatitude == Double(model.lat), savedLongitude == Double(model.long) {
+        if let savedLatitude = UserDefaults.standard.object(forKey: "latitude") as? Double,  let savedLongitude =  UserDefaults.standard.object(forKey: "longitude") as? Double, savedLatitude == model.lat, savedLongitude == model.long {
             UserDefaults.standard.removeObject(forKey: "latitude")
             UserDefaults.standard.removeObject(forKey: "longitude")
-            print("Longitude değeri silindi.")
+            UserDefaults.standard.synchronize()
+            print("Latitude and Longitude values ​​have been deleted.")
         } else {
-            print("Silinecek bir Longitude değeri bulunamadı.")
+            print("No Latitude, Longitude value to delete was found.")
         }
     }
-    
+
     private func fetchAndUpdateItem(_ item: ItemModel) {
         let coordinates = (item.lat, item.long)
         Task {

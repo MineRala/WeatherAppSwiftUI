@@ -17,11 +17,11 @@ final class ItemModel: Identifiable{
     var temp: Float
     var minTemp: Float
     var maxTemp: Float
-    var lat: Float
-    var long: Float
+    var lat: Double
+    var long: Double
     var timezone: Int
 
-    init(timeStamp: Date, title: String, desc: String,  temp: Float, minTemp: Float, maxTemp: Float, lat: Float, long: Float, timezone: Int) {
+    init(timeStamp: Date, title: String, desc: String,  temp: Float, minTemp: Float, maxTemp: Float, lat: Double, long: Double, timezone: Int) {
         self.id = UUID().uuidString
         self.timestamp = timeStamp
         self.title = title

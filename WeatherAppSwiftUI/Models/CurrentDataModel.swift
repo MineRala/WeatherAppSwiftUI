@@ -12,7 +12,7 @@ struct WeatherData {
     var currentWeather: CurrentDataModel?
     var forecastWeather: ForecastDataModel?
     
-    init() {}
+//    init() {}
 }
 
 // Hashable -> SwiftUI uygulamalarında veri modellerinizi Hashable yapmak, veri yönetimini ve kullanıcı arayüzünün düzgün çalışmasını sağlamak için önemlidir. Bu nedenle, SwiftUI'de kullanacağınız herhangi bir modelin Hashable olması genellikle iyi bir uygulama yöntemidir.
@@ -33,8 +33,8 @@ struct CurrentDataModel: Decodable {
 }
 
 struct Coordinate: Decodable, Hashable {
-    let lon: Float?
-    let lat: Float?
+    let lon: Double?
+    let lat: Double?
 }
 
 struct Weather: Decodable, Hashable {

@@ -13,8 +13,8 @@ enum Endpoint {
         static let apiKey = "dc20bc24c47b21345ee9feabc7a4539b"
     }
 
-    case currentWeatherData(latitude: Float, longitude: Float) // case' e input verme associated value olmuş oluyor
-    case forecastWeatherData(latitude: Float, longitude: Float)
+    case currentWeatherData(latitude: Double, longitude: Double) // case' e input verme associated value olmuş oluyor
+    case forecastWeatherData(latitude: Double, longitude: Double)
     
     var url: String {
         switch self {

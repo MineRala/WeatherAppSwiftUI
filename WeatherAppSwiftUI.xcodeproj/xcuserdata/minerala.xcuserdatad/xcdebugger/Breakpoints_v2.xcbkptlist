@@ -3,4 +3,308 @@
    uuid = "6A00B46B-55F8-48C3-8578-08E43F332127"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7893D3FA-9A96-40D5-A401-78CAA039499D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherAppSwiftUI/Views/MainView/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C605839C-9B86-4E21-BF60-6E6C974DFE45"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherAppSwiftUI/Views/MainView/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E0A7F472-9A93-40CF-82CA-E56EBFB97A61"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherAppSwiftUI/Views/MainView/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "determineCoordinate(lat:long:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E0A7F472-9A93-40CF-82CA-E56EBFB97A61 - 8b720217ffe15cd9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppSwiftUI.HomeView.determineCoordinate(lat: Swift.Optional&lt;Swift.Double&gt;, long: Swift.Optional&lt;Swift.Double&gt;) -&gt; Swift.Optional&lt;(Swift.Double, Swift.Double)&gt;"
+                  moduleName = "WeatherAppSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Views/MainView/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "1240">
+               </Location>
+               <Location
+                  uuid = "E0A7F472-9A93-40CF-82CA-E56EBFB97A61 - 8b720217ffe15cd9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppSwiftUI.HomeView.determineCoordinate(lat: Swift.Optional&lt;Swift.Double&gt;, long: Swift.Optional&lt;Swift.Double&gt;) -&gt; Swift.Optional&lt;(Swift.Double, Swift.Double)&gt;"
+                  moduleName = "WeatherAppSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Views/MainView/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "1156">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E536449C-12BD-4A35-8104-F74202B946FA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherAppSwiftUI/Views/MainView/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "determineCoordinate(lat:long:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E536449C-12BD-4A35-8104-F74202B946FA - 8b720217ffe15f1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppSwiftUI.HomeView.determineCoordinate(lat: Swift.Optional&lt;Swift.Double&gt;, long: Swift.Optional&lt;Swift.Double&gt;) -&gt; Swift.Optional&lt;(Swift.Double, Swift.Double)&gt;"
+                  moduleName = "WeatherAppSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Views/MainView/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "304">
+               </Location>
+               <Location
+                  uuid = "E536449C-12BD-4A35-8104-F74202B946FA - 8b720217ffe15f1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppSwiftUI.HomeView.determineCoordinate(lat: Swift.Optional&lt;Swift.Double&gt;, long: Swift.Optional&lt;Swift.Double&gt;) -&gt; Swift.Optional&lt;(Swift.Double, Swift.Double)&gt;"
+                  moduleName = "WeatherAppSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Views/MainView/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "724">
+               </Location>
+               <Location
+                  uuid = "E536449C-12BD-4A35-8104-F74202B946FA - 8b720217ffe15f1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppSwiftUI.HomeView.determineCoordinate(lat: Swift.Optional&lt;Swift.Double&gt;, long: Swift.Optional&lt;Swift.Double&gt;) -&gt; Swift.Optional&lt;(Swift.Double, Swift.Double)&gt;"
+                  moduleName = "WeatherAppSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Views/MainView/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "296">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "435DA46F-D450-4A25-8AA4-1B66ACAC2C9A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherAppSwiftUI/Views/MainView/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "determineCoordinate(lat:long:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "435DA46F-D450-4A25-8AA4-1B66ACAC2C9A - 8b720217ffe15cb6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppSwiftUI.HomeView.determineCoordinate(lat: Swift.Optional&lt;Swift.Double&gt;, long: Swift.Optional&lt;Swift.Double&gt;) -&gt; Swift.Optional&lt;(Swift.Double, Swift.Double)&gt;"
+                  moduleName = "WeatherAppSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Views/MainView/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "156"
+                  endingLineNumber = "156"
+                  offsetFromSymbolStart = "1568">
+               </Location>
+               <Location
+                  uuid = "435DA46F-D450-4A25-8AA4-1B66ACAC2C9A - 8b720217ffe15c97"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppSwiftUI.HomeView.determineCoordinate(lat: Swift.Optional&lt;Swift.Double&gt;, long: Swift.Optional&lt;Swift.Double&gt;) -&gt; Swift.Optional&lt;(Swift.Double, Swift.Double)&gt;"
+                  moduleName = "WeatherAppSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Views/MainView/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
+                  offsetFromSymbolStart = "1436">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7FB49E81-0182-4171-A293-AF3D558083E5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherAppSwiftUI/Views/AddView/AddView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "deleteModelFromUserDefaults(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7FB49E81-0182-4171-A293-AF3D558083E5 - 64599f5921935d25"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppSwiftUI.AddView.deleteModelFromUserDefaults(WeatherAppSwiftUI.ItemModel) -&gt; ()"
+                  moduleName = "WeatherAppSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Views/AddView/AddView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "1644">
+               </Location>
+               <Location
+                  uuid = "7FB49E81-0182-4171-A293-AF3D558083E5 - 64599f5921935d25"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppSwiftUI.AddView.deleteModelFromUserDefaults(WeatherAppSwiftUI.ItemModel) -&gt; ()"
+                  moduleName = "WeatherAppSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Views/AddView/AddView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "1596">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "33EFEF61-8D89-4DB4-9540-57966363F2A5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherAppSwiftUI/Views/AddView/AddView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "deleteModelFromUserDefaults(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "33EFEF61-8D89-4DB4-9540-57966363F2A5 - 64599f5921935d46"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppSwiftUI.AddView.deleteModelFromUserDefaults(WeatherAppSwiftUI.ItemModel) -&gt; ()"
+                  moduleName = "WeatherAppSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Views/AddView/AddView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "1540">
+               </Location>
+               <Location
+                  uuid = "33EFEF61-8D89-4DB4-9540-57966363F2A5 - 64599f5921935d46"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppSwiftUI.AddView.deleteModelFromUserDefaults(WeatherAppSwiftUI.ItemModel) -&gt; ()"
+                  moduleName = "WeatherAppSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Views/AddView/AddView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "988">
+               </Location>
+               <Location
+                  uuid = "33EFEF61-8D89-4DB4-9540-57966363F2A5 - 64599f5921935dda"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppSwiftUI.AddView.deleteModelFromUserDefaults(WeatherAppSwiftUI.ItemModel) -&gt; ()"
+                  moduleName = "WeatherAppSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minerala/Documents/GitHub/WeatherAppSwiftUI/WeatherAppSwiftUI/Views/AddView/AddView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "112"
+                  endingLineNumber = "112"
+                  offsetFromSymbolStart = "988">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
